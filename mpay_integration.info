@@ -1,0 +1,5 @@
+name = MPay integration
+description = Provide API for payments via MPay.gov.md
+core = 7.x
+version = 7.x-1.0
+package = Deeplace

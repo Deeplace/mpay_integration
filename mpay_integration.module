@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Attaches custom data fields to Drupal entities.
+ */
+
+define('MPAY_INTEGRATION_STATUS_ACTIVE', 'Active');
+define('MPAY_INTEGRATION_STATUS_PARTIALLYPAID', 'PartiallyPaid');
+define('MPAY_INTEGRATION_STATUS_PAID', 'Paid');
+define('MPAY_INTEGRATION_STATUS_COMPLETED', 'Completed');
+define('MPAY_INTEGRATION_STATUS_EXPIRED', 'Expired');
+define('MPAY_INTEGRATION_STATUS_CANCELLED', 'Cancelled');
+define('MPAY_INTEGRATION_STATUS_REFUNDING', 'Refunding');
+define('MPAY_INTEGRATION_STATUS_REFUNDED', 'Refunded');
+
+/**
+ * Implements hook_menu().
+ */
+function mpay_integration_menu() {
+  $items['admin/config/services/mpay_integration'] = array(
+    'title' => 'MPay integration settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mpay_integration_form'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'mpay_integration.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
